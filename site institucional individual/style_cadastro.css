@@ -1,6 +1,18 @@
-.body{   background-repeat: no-repeat;
+*{
+   margin: 0;
+   padding:0;
+}
+
+
+.fundo{   
+   background-image: url("./assets/Group\ 1373.png");
+   background-repeat: no-repeat;
    background-size: cover;
-   width: 100vh;
-   height: 100vw;
+   background-position: center center ;
+   overflow: hidden;
+   width: 100vw;
+   height:100vh;
+
 
 }
+

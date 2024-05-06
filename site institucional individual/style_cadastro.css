@@ -1,18 +1,93 @@
-*{
+* {
    margin: 0;
-   padding:0;
+   padding: 0;
 }
 
 
-.fundo{   
-   background-image: url("./assets/Group\ 1373.png");
+body {
+   background-image: url("./assets/Group\ 1373\ \(2\).png");
    background-repeat: no-repeat;
    background-size: cover;
-   background-position: center center ;
-   overflow: hidden;
-   width: 100vw;
-   height:100vh;
+   background-position: center center;
+   width: 100%;
+   height: 150vh;
+   margin-top: 0%;
+
 
 
 }
 
+.titulo{
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   font-size: 50px;
+   margin-top: 650px;
+   font-family: "Urbanist",sans-serif;
+   color: #FEBA08;
+   font-style: bold;
+}
+
+.input {
+   display: flex;
+   justify-content: center;
+   align-items: center;
+   flex-direction: column;
+   position: relative;
+   width: 50%;
+   margin: 300px auto 0;
+   color: inherit;
+
+
+}
+
+.input input {
+
+   width: 300px;
+   height: 30px;
+   opacity: 0.4;
+   border-radius: 15px;
+}
+
+
+#input_nome::placeholder {
+   text-align: center;
+   font-family: "Urbanist", sans-serif;
+   color: blue;
+}
+
+#input_dtnascimento::placeholder {
+   text-align: center;
+   font-family: "Urbanist", sans-serif;
+   color: blue;
+}
+
+#input_email::placeholder {
+   text-align: center;
+   font-family: "Urbanist", sans-serif;
+   color: blue;
+}
+
+#input_senha::placeholder {
+   text-align: center;
+   font-family: "Urbanist", sans-serif;
+   color: blue;
+
+}
+
+#input_confirmacao_senha::placeholder {
+   text-align: center;
+   font-family: "Urbanist", sans-serif;
+   color: blue;
+}
+
+.botao{
+
+   border-radius: 15px;
+   background-color: #FEBA08;
+   color: white;
+   width: 300px;
+   height: 30px;
+   font-family: "Urbanist",sans-serif;
+   font-style: bold;
+}

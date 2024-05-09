@@ -5,6 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="//use.fontawesome.com/releases/v5.0.7/css/all.css">
     <link rel="stylesheet" href="style_cadastro.css">
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -15,7 +16,26 @@
 </head>
 
 <body>
+
+   
+
     <div class="body">
+       
+        <div class="hamburger-menu">
+            <input id="menu__toggle" type="checkbox" />
+            <label class="menu__btn" for="menu__toggle">
+              <span></span>
+            </label>
+        
+            <ul class="menu__box">
+              <li> <i class="fa-solid fa-house"></i> <a class="menu__item" href="#">Home</a></li>
+              <li><a class="menu__item" href="#">About</a></li>
+              <li><a class="menu__item" href="#">Team</a></li>
+              <li><a class="menu__item" href="#">Contact</a></li>
+              <li><a class="menu__item" href="#">Twitter</a></li>
+            </ul>
+          </div>
+        <img class="logo" src="./assets/Captura de tela 2024-04-29 222740 3.png" >
 
         <div class="titulo">
             Crie sua conta
@@ -28,7 +48,7 @@
             <Input id="input_nome" placeholder="Nome:"><br>
 
 
-            <input id="input_dtnascimento" type="date" placeholder="Data de Nascimento"><br>
+            <input style="color: white; font-family: Urbanist,sans-serif;";  id="input_dtnascimento" type="date" placeholder="Data de Nascimento"><br>
 
             
             <input id="input_email" type="email" placeholder="Email:"> <br>
@@ -39,7 +59,14 @@
 
             <input type="password" id="input_confirmacao_senha" placeholder="Confirme sua senha:"><br>
 
-            <button onclick="" class="botao"> Criar Conta</button>
+            <button onclick="" class="botao"> Criar Conta</button><br> 
+
+            <div>
+                <p class="frase">Já tem um conta?Entre por aqui!</p>
+
+            </div>
+
+        </div>
         </div>
     </div>
 </body>

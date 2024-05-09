@@ -1,0 +1,20 @@
+
+body{
+ margin: 0;
+ overflow-x: hidden;
+}
+
+.inicial{
+    background-image: url("./assets/Group\ 1374\ \(2\).png ");
+    position: relative;
+    width: 99vw;
+    height: 130vh;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.macha{
+    background-image: url("./assets/Vector\ 1.png");
+    position: relative;
+    justify-content: flex-start;
+}

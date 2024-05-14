@@ -5,7 +5,7 @@ body{
 }
 
 .inicial{
-    background-image: url("./assets/Group\ 1374\ \(2\).png ");
+    background-image: url("./assets/Group\ 1374\ \(3\).png ");
     position: relative;
     width: 99vw;
     height: 130vh;
@@ -17,4 +17,10 @@ body{
     background-image: url("./assets/Vector\ 1.png");
     position: relative;
     justify-content: flex-start;
+}
+
+.logo{
+    background-image: url("./assets/Captura\ de\ tela\ 2024-04-29\ 222740\ 3.png");
+    position: relative;
+    justify-content: center;
 }

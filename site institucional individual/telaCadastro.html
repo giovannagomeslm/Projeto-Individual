@@ -59,17 +59,84 @@
 
             <input type="password" id="input_confirmacao_senha" placeholder="Confirme sua senha:"><br>
 
-            <button onclick="" class="botao"> Criar Conta</button><br> 
+            <button onclick="cadastro()"class="botao">Criar Conta</button><br> 
 
             <div>
                 <p class="frase">Já tem um conta?Entre por aqui!</p>
 
             </div>
-
+            
         </div>
         </div>
     </div>
+
+    <div id="div_resultado"></div>
 </body>
 
 
 </html>
+
+<script>
+
+function cadastro() {
+let nome=input_nome.value
+let dataNascimento= input_dtnascimento.value
+let email=input_email.value
+let senha=input_senha.value
+let confirmacaoSenha=input_confirmacao_senha.value
+let arrobaEmail=email.indexOf("@");
+let tamanhoSenha=senha.length
+
+
+var temNumeroSenha=false
+
+for(let contador=0;contador<=senha.length;contador++) {
+
+    let numero=senha[contador];
+
+    if(!isNaN(numero)){
+        temNumeroSenha=true;
+        break
+        
+    }
+}
+
+if(temNumeroSenha){
+    alert("Senha correta!")
+
+}else{
+    alert("Sua senha deve conter ao menos 1 número!")
+}
+if(email==""){
+    alert("Insira um endereço de email válido para prosseguir!" )
+}
+else if(nome==""){
+    alert("Insira seu nome completo")
+}
+else if(senha==""){
+    alert("Insira uma senha para prosseguir")
+}
+else if(tamanhoSenha <=     5){
+    alert("Sua senha deve conter mais de 5 caracteres")
+}
+else if(confirmacaoSenha!=senha){
+    alert("As senhas não são similares")
+}
+else if(dataNascimento==""){
+    alert("Insira sua data de nascimento para prosseguir!")
+}
+else if(arrobaEmail=-1){
+    alert("Seu email deve conter @!")
+}
+else{
+    alert("Cadastro realizado com sucesso!")
+    window.location.href="telalogin.html"
+}
+
+
+
+
+
+}
+
+</script>

@@ -39,6 +39,7 @@ body{
     text-align: center;
     font-family: "Urbanist",sans-serif;
     color: white;
+    font-size: 20px;
  }
  #input_email::placeholder {
   text-align: center;
@@ -50,6 +51,11 @@ body{
   font-family: "Urbanist", sans-serif;
   color: white;
 }
+#input_senha{
+  font-size: 20px;
+}
+
+
 
  
 #menu__toggle {
@@ -75,7 +81,7 @@ body{
     right: 20px;
     width: 26px;
     height: 26px;
-    cursor: pointer;
+    cursor: pointer;  
     z-index: 1;
   }
   .menu__btn > span,

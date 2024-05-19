@@ -38,7 +38,7 @@ body {
     left: 50%;
     transform:translate(-50%) ;
     z-index: 2;
-
+    margin-left:450px;
 }
 #menu__toggle {
     opacity: 0;
@@ -120,11 +120,15 @@ body {
 
   .fundo2{
     background-image: url("./assets/Group\ 1375.png");
-    position: absolute;
-    display: block;
+    position: relative;
+    display: flex;
     background-repeat: no-repeat;
     background-size: cover;
-    z-index: 1;
+    height: 145vh;
+    width: 100%;
+    top:1050px;
+    margin: 0;
+    padding-right: 100px;
 
-  }
- 
+
+  } 

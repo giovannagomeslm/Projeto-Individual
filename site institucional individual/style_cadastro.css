@@ -146,40 +146,33 @@ body {
    background-color: #ffffff81; 
    border: 2px solid white ;
    text-align: center;
+   color: white;
 }
-
-
 #input_nome::placeholder {
    text-align: center;
    font-family: "Urbanist", sans-serif;
    color: white;
 }
-
 #input_dtnascimento::placeholder {
    text-align: center;
    font-family: "Urbanist", sans-serif;
    color: white;
 }
-
 #input_email::placeholder {
    text-align: center;
    font-family: "Urbanist", sans-serif;
    color: white;
 }
-
 #input_senha::placeholder {
    text-align: center;
    font-family: "Urbanist", sans-serif;
    color: white;
-
 }
-
 #input_confirmacao_senha::placeholder {
    text-align: center;
    font-family: "Urbanist", sans-serif;
    color: white;
 }
-
 .botao{
 
    border-radius: 15px;
@@ -191,12 +184,9 @@ body {
    font-style: bold;
    border: 2px solid white;
 }
-
 .frase{
    font-family: "Urbanist",sans-serif;
    color: white;
-}
-
-.frase:hover{
+}.frase:hover{
    text-decoration: underline;
 }

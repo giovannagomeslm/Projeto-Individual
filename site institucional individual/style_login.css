@@ -41,17 +41,17 @@ body{
     color: white;
     font-size: 20px;
  }
- #input_email::placeholder {
+ .input_email::placeholder {
   text-align: center;
   font-family: "Urbanist", sans-serif;
   color: white;
 }
-#input_senha::placeholder {
+.input_senha::placeholder {
   text-align: center;
   font-family: "Urbanist", sans-serif;
   color: white;
 }
-#input_senha{
+.input_senha{
   font-size: 20px;
 }
 

@@ -1,142 +1,120 @@
-*{
-    margin: 0;
-    padding: 0;
+* {
+  margin: 0rem;
+  padding: 0rem;
 }
 
+body::-webkit-scrollbar {
+  margin: -1px;
+  width: 2px;
+}
+
+body::-webkit-scrollbar:hover {
+  width: 12px;
+}
+
+body::-webkit-scrollbar-thumb {
+  background-color: grey;
+}
+
+body::-webkit-scrollbar-track {
+  background-color: #FFFFFF;
+}
 
 
 body {
-    display: flex;
-    justify-content: center;
-    margin: 0;
-    height: 3733px;
-    width: 100%;
+  display: flex;
+  justify-content: center;
+  margin: 0;
+  height: 3733px;
+  width: 100%;
 }
 
 .fundo {
-    background-image: url("./assets/Group\ 1374\ \(4\).png");
-    position: absolute;
-    width: 100%;
-    height: 145vh;
-    background-size: cover;
-    background-repeat: no-repeat;
-    display: block;
+  background-image: url("./assets/Group\ 1374\ \(4\).png");
+  position: absolute;
+  width: 100%;
+  height: 145vh;
+  background-size: cover;
+  background-repeat: no-repeat;
+  display: block;
 
 }
 
 .macha {
-    background-image: url("./assets/Vector\ 1.png");
-    position: relative;
-    justify-content: flex-start;
+  background-image: url("./assets/Vector\ 1.png");
+  position: relative;
+  justify-content: flex-start;
 }
 
 .logo {
-    background-image: url("./assets/Captura de tela 2024-04-29 222740 3.png");
-    position: relative;
-    width: 170px;
-    height: 63px;
-    top: 0;
-    left: 50%;
-    transform:translate(-50%) ;
-    z-index: 2;
-    margin-left:450px;
+  background-image: url("./assets/Captura de tela 2024-04-29 222740 3.png");
+  position: relative;
+  width: 170px;
+  height: 63px;
+  top: 0;
+  left: 50%;
+  transform: translate(-50%);
+  z-index: 2;
+  margin-left: 450px;
 }
-#menu__toggle {
-    opacity: 0;
-  }
-  #menu__toggle:checked + .menu__btn > span {
-    transform: rotate(45deg);
 
-  }
-  #menu__toggle:checked + .menu__btn > span::before {
-    top: 0;
-    transform: rotate(0deg);
+.fundo2 {
+  background-image: url("./assets/Group\ 1375.png");
+  position: relative;
+  display: flex;
+  background-repeat: no-repeat;
+  background-size: cover;
+  height: 100%;
+  width: 100%;
+  top: 1050px;
+  margin: 0;
+  padding-right: 100px;
+  z-index: 0;
+  justify-content: space-around;
+}
 
-  }
-  #menu__toggle:checked + .menu__btn > span::after {
-    top: 0;
-    transform: rotate(90deg);
+.linha_amarela {
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+  flex-direction: column;
+  z-index: 1;
+  width: 400px;
+  height: 10px;
+  margin-top: 50px;
+  margin-left: 100px;
+}
 
-  }
-  #menu__toggle:checked ~ .menu__box {
-    right: 0 !important;
-  }
-  .menu__btn {
-    position: fixed;
-    top: 20px;
-    right: 20px;
-    width: 26px;
-    height: 26px;
-    cursor: pointer;
-    z-index: 2;
-  }
-  .menu__btn > span,
-  .menu__btn > span::before,
-  .menu__btn > span::after {
-    display: block;
-    position: absolute;
-    width: 100%;
-    height: 2px;
-    background-color: white;
-    transition-duration: .25s;
-    
-  }
-  .menu__btn > span::before {
-    content: '';
-    top: -8px;
-  }
-  .menu__btn > span::after {
-    content: '';
-    top: 8px;
+.linha_amarela2 {
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+  flex-direction: column;
+  z-index: 1;
+  width: 400px;
+  height: 10px;
+  margin-top: 50px;
+  margin-right: 20px;
+}
+
+.frase_1 {
+  font-family: "Urbanist", sans-serif;
+  font-weight: bold;
+  font-size: 25px;
+  color: #FEBA08;
+  margin-top: 40px;
+
+}
+.estatisticas{
+  font-family: "Urbanist",sans-serif; 
+  font-size: 40px;
+  color: white;
+  font-weight: bold;
+  margin-top: 100px;
+  display: flex;
+  justify-content:flex-start;
+  gap:20px;
+  position:relative;
+  z-index: 2;  
   
-  }
-  .menu__box {
-    display: block;
-    position: fixed;
-    z-index: 10;
-    top: 0;
-    right: -100%;
-    width: 300px;
-    height: 100%;
-    margin: 0;
-    padding: 80px 0;
-    list-style: none;
-    background-color: #000000;
-    box-shadow: 2px 2px 6px rgba(0, 0, 0, .4);
-    transition-duration: .25s;
-  }
-  .menu__item {
-    display: block;
-    padding: 12px 24px;
-    color: #FEBA08;
-    font-family: 'Roboto', sans-serif;
-    font-size: 20px;
-    font-weight: 600;
-    text-decoration: none;
-    transition-duration: .25s;
-  }
-  .menu__item:hover {
-    background-color: #CFD8DC;
-  }
-
-  .fundo2{
-    background-image: url("./assets/Group\ 1375.png");
-    position: relative;
-    display: flex;
-    background-repeat: no-repeat;
-    background-size: cover;
-    height: 100%;
-    width: 100%;
-    top:1050px;
-    margin: 0;
-    padding-right: 100px;
-    z-index: 0;
-
-  }
-  .linha_amarela{
-    background-image: url("./assets/Vector\ 28.png");
-    display: flex;
-    position: relative;
-    justify-content: center;
-
-  }
+}

@@ -65,11 +65,10 @@ body {
   background-repeat: no-repeat;
   background-size: cover;
   height: 100%;
-  width: 100%;
+  width: 100%   ;
   top: 1050px;
   margin: 0;
   padding-right: 100px;
-  z-index: 0;
   justify-content: space-around;
 }
 
@@ -107,14 +106,50 @@ body {
 }
 .estatisticas{
   font-family: "Urbanist",sans-serif; 
-  font-size: 40px;
-  color: white;
+  font-size: 80px;
   font-weight: bold;
-  margin-top: 100px;
+  color: white;
   display: flex;
-  justify-content:flex-start;
-  gap:20px;
-  position:relative;
-  z-index: 2;  
-  
+  position:absolute;
+  margin-top: 100px;
+  gap:40px;  
+  margin-left: 60px;
 }
+.estatisticas2{
+  font-size: 20px;
+  font-family: "Urbanist",sans-serif;
+  font-weight: bold;
+  color: white;
+  display: flex;
+  position: absolute;
+  margin-top: 200px;
+  gap: 40px;
+  margin-left:60px ;
+}
+.video_youtube{
+  margin-top: 1400px;
+  margin-left: 60px;
+  display: flex;
+  position: absolute;
+}
+.linha_amarela3{
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+  flex-direction: column;
+  z-index: 1;
+  width: 400px;
+  height: 10px;
+  top: 1500px;
+}
+.linha_amarela4{
+  display: flex;
+  position: relative;
+  justify-content: flex-start;
+  flex-direction: column;
+  z-index: 1;
+  width: 400px;
+  height: 10px;
+  top: 1500px;
+}
+

@@ -101,13 +101,12 @@ for(let contador=0;contador<=senha.length;contador++) {
     }
 }
 
-if(temNumeroSenha){
-    alert("Senha correta!")
 
-}else{
+
+if(temNumeroSenha==false ){
     alert("Sua senha deve conter ao menos 1 número!")
 }
-if(email==""){
+else if(email==""){
     alert("Insira um endereço de email válido para prosseguir!" )
 }
 else if(nome==""){
@@ -116,7 +115,7 @@ else if(nome==""){
 else if(senha==""){
     alert("Insira uma senha para prosseguir")
 }
-else if(tamanhoSenha <=     5){
+else if(tamanhoSenha <= 5){
     alert("Sua senha deve conter mais de 5 caracteres")
 }
 else if(confirmacaoSenha!=senha){

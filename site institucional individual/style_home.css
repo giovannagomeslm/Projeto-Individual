@@ -234,21 +234,19 @@ body {
   width: 300px;
 }
 
-.container {
-  position: absolute;
-  display: flex;
-  align-items: flex-start;
-  margin-top: 200px;
-  margin-left: 70px;
-}
-
 
 .box_Ser {
   position: relative;
   margin-top: 100px;
-  margin-left:80px;
-}
-.txt_Ser{
+  display: flex;
+  color: white;
+  font-family: "Urbanist",sans-serif;
+  justify-content: space-around;
 
 }
+.texto{
+  width: 70%;
+  font-size: 20px;
+}
+
 

@@ -1,6 +1,6 @@
 * {
-  margin: 0rem;
-  padding: 0rem;
+  margin: 0;
+  padding: 0;
 }
 
 body::-webkit-scrollbar {
@@ -68,7 +68,7 @@ body {
   margin: 0;
 }
 
-.estatisticasPrincipal{
+.estatisticasPrincipal {
   display: flex;
   flex-direction: column;
   justify-content: space-around;
@@ -105,8 +105,9 @@ body {
   margin-top: 40px;
 
 }
-.estatisticas{
-  font-family: "Urbanist",sans-serif; 
+
+.estatisticas {
+  font-family: "Urbanist", sans-serif;
   font-size: 80px;
   font-weight: bold;
   color: white;
@@ -115,13 +116,13 @@ body {
   justify-content: center;
 }
 
-.estatisticas p{
+.estatisticas p {
   margin: 0 20px;
 }
 
-.estatisticas2{
+.estatisticas2 {
   font-size: 20px;
-  font-family: "Urbanist",sans-serif;
+  font-family: "Urbanist", sans-serif;
   font-weight: bold;
   color: white;
   display: flex;
@@ -129,40 +130,41 @@ body {
   justify-content: center;
 }
 
-.estatisticas2 p{
+.estatisticas2 p {
   margin: 0 20px;
 }
 
-.estatisticas3{
+.estatisticas3 {
   width: 100%;
   display: flex;
   justify-content: space-evenly;
 }
 
-.video_youtube{
+.video_youtube {
   margin-top: 100px;
   width: 100%;
   display: flex;
   justify-content: center;
 }
 
-.integrantes{
+.integrantes {
   margin-top: 200px;
   display: flex;
   width: 100%;
   justify-content: space-around;
 }
 
-.linha_amarela3{
+.linha_amarela3 {
   width: 400px;
   height: 10px;
 }
 
-.linha_amarela4{
+.linha_amarela4 {
   width: 400px;
   height: 10px;
 }
-.frase_2{
+
+.frase_2 {
   font-family: "Urbanist", sans-serif;
   font-weight: bold;
   font-size: 25px;
@@ -170,46 +172,47 @@ body {
 }
 
 
-.img_integrantes{
+.img_integrantes {
   margin-top: 100px;
   width: 100%;
   display: flex;
   justify-content: space-around;
 }
 
-.face{
+.face {
   width: 220px;
   height: 220px;
   perspective: 700px;
 }
 
-.front_apuke,.back_apuke{
+.front_apuke,
+.back_apuke {
   position: absolute;
   width: 100%;
   height: 100%;
   transition: 700ms;
 }
 
-.front_apuke{
+.front_apuke {
   z-index: 2;
 }
 
-.front_apuke img{
+.front_apuke img {
   width: 100%;
   height: 100%;
 }
 
-.back_apuke{
+.back_apuke {
   width: 100%;
   height: 100%;
   background-color: #200726;
   opacity: 90%;
   transform: rotateY(-180deg);
   backface-visibility: hidden;
-  font-family: "Urbanist",sans-serif;
+  font-family: "Urbanist", sans-serif;
   font-style: bold;
   font-size: 15px;
-  color: white  ;
+  color: white;
   text-align: center;
   display: flex;
   flex-direction: column;
@@ -226,3 +229,26 @@ body {
   z-index: 2;
 
 }
+
+.box_Ser img {
+  width: 300px;
+}
+
+.container {
+  position: absolute;
+  display: flex;
+  align-items: flex-start;
+  margin-top: 200px;
+  margin-left: 70px;
+}
+
+
+.box_Ser {
+  position: relative;
+  margin-top: 100px;
+  margin-left:80px;
+}
+.txt_Ser{
+
+}
+

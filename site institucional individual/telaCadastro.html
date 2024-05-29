@@ -101,9 +101,11 @@ for(let contador=0;contador<=senha.length;contador++) {
     }
 }
 
+if (nome==""||dataNascimento==""||email==""||senha==""||confirmacaoSenha==""){
+    alert("Preencha todos os campos para prosseguir!")
+}
 
-
-if(temNumeroSenha==false ){
+else if(temNumeroSenha==false ){
     alert("Sua senha deve conter ao menos 1 número!")
 }
 else if(email==""){
@@ -124,8 +126,8 @@ else if(confirmacaoSenha!=senha){
 else if(dataNascimento==""){
     alert("Insira sua data de nascimento para prosseguir!")
 }
-else if(arrobaEmail=-1){
-    alert("Seu email deve conter @!")
+else if(arrobaEmail <0|| arrobaEmail.length>-1){
+    alert("Insira um endereço de email válido!")
 }
 else{
     alert("Cadastro realizado com sucesso!")

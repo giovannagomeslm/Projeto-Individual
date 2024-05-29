@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+  <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -42,8 +42,7 @@
 
         <input class="input_email" placeholder="Email:"><br>
         <input class="input_senha" type="password" placeholder="Senha:"><br>
-        <button onclick="" class="botao">Entrar</button><br> 
-
+      <button onclick="login()" class="botao">Entrar</button>
         <div class="frase">
             <p>Não tem uma conta?Faça seu cadastro por aqui!</p>
         </div>
@@ -52,3 +51,19 @@
   
 </body>
 </html>
+
+
+<script>
+    function login(){
+      let email=input_email.value;
+      let senha=input_senha.value;
+
+      if(email==""||senha==""){
+        alert("Preencha todos os campos para prosseguir")
+      }
+      else {
+        window.location=("telaUsuario.html")
+      }
+    }
+
+</script>

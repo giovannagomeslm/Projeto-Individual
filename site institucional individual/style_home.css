@@ -58,7 +58,7 @@ body {
 }
 
 .fundo2 {
-  background-image: url("./assets/Group\ 1375.png");
+  background-image: url("./assets/Group\ 1375\ \(5\).png");
   background-repeat: no-repeat;
   background-size: cover;
   background-position: center center;
@@ -231,7 +231,7 @@ body {
 }
 
 .box_Ser img {
-  width: 300px;
+  width: 600px;
 }
 
 
@@ -244,9 +244,50 @@ body {
   justify-content: space-around;
 
 }
-.texto{
+.texto1{
   width: 70%;
   font-size: 20px;
+  display: flex;
+  width: 50%;
+  background-color: white;
+  color: black;
+  align-items: center;
+  margin-left: 50px;
+  margin-top: 20px;
+  border-radius: 20px;
+}
+.box_buscamos img{
+  width: 600px;
+
+}
+.box_buscamos{
+  position: relative;
+  margin-top: 200px;
+  display: flex;
+  color: white;
+  font-family: "Urbanist",sans-serif;
+  justify-content: space-around;
+  margin-right: 50px;
+
+}
+.texto2{
+  display:flex;
+  font-size: 20px;
+  margin-left: 50px;
+  margin-top: 20px;
+  width: 50%;
+  background-color: white;
+  color: black;
+  align-items: center;
+  border-radius: 20px;
+  font-family: "Urbanist",sans-serif;
+  -webkit-box-shadow: 0px 9px 19px -4px rgba(#FFFFFF);
+
+}
+.texto2 p{
+  margin-left: 20px;
+  margin-right: 20px;
+
 }
 
 

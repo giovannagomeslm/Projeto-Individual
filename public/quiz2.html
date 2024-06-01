@@ -1,0 +1,285 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="../public/css/stylequizz.css">
+    <title>Document</title>
+
+</head>
+
+<body>
+    <!-- <section class="logo">
+        <img src="../public/assets/Captura de tela 2024-04-29 222740 3.png">
+    </section> -->
+    <nav class="menu">
+        <input type="checkbox" class="menu-faketrigger">
+        <div class="menu-lines">
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul>
+            <li><a href="">Home</a></li>
+            <li><a href="">Quiz</a></li>
+            <li><a href="">Dashboard</a></li>
+            <li><a href="">Sair</a></li>
+
+
+
+        </ul>
+    </nav>
+
+    <div class="container">
+        <span></span>
+        <span></span>
+        <span></span>
+        <span></span>
+
+        <div class="questions-container hide">
+            <div class="answers-container">
+                <button class="answer button">Resposta 1</button>
+                <button class="answer button">Resposta 2</button>
+                <button class="answer button">Resposta 3</button>
+                <button class="answer button">Resposta 4</button>
+
+            </div>
+
+        </div>
+        <span class="question"></span>
+
+        <div class="controls-container">
+            <button class="start-quiz button">Começar Quiz!</button>
+            <button class="next-question button hide">Próxima pergunta</button>
+
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    const startGameButton = document.querySelector(".start-quiz");
+    const questionsContainer = document.querySelector(".questions-container");
+    const answersContainer = document.querySelector(".answers-container")
+    const questionText = document.querySelector(".question")
+    const nextQuestionButton = document.querySelector(".next-question")
+
+    startGameButton.addEventListener("click", startGame);
+    nextQuestionButton.addEventListener("click", displayNextQuestion)
+
+    let currentQuestionIndex = 0;
+    let totalCorrect = 0;
+
+    function startGame() {
+        startGameButton.classList.add("hide");
+        questionsContainer.classList.remove("hide")
+        displayNextQuestion()
+    }
+
+
+
+    function displayNextQuestion() {
+        reseatState()
+
+        if (question.length == currentQuestionIndex) {
+            return finishGame()
+        }
+
+        questionText.textContent = question[currentQuestionIndex].question
+
+        question[currentQuestionIndex].answers.forEach(answer => {
+
+            const newAnswer = document.createElement("button")
+            newAnswer.classList.add("button", "answer")
+            newAnswer.textContent = answer.text
+            if (answer.correct) {
+                newAnswer.dataset.correct = answer.correct
+            }
+
+            answersContainer.appendChild(newAnswer)
+
+
+            newAnswer.addEventListener("click", selectAnswer)
+        })
+
+
+    }
+    function reseatState() {
+        while (answersContainer.firstChild) {
+            answersContainer.removeChild(answersContainer.firstChild)
+        }
+
+        document.body.removeAttribute("class")//remove todas as classes que o body recebe
+        nextQuestionButton.classList.add("hide")//tira o botão próxima pergunta
+    }
+
+    function selectAnswer(event) {
+
+        const answerClicked = event.target
+
+        if (answerClicked.dataset.correct) {
+            document.body.classList.add("correct")
+            totalCorrect++
+        }
+        else {
+            document.body.classList.add("incorrect")
+        }
+
+        document.querySelectorAll(".answer").forEach(button => {
+            if (button.dataset.correct) {
+                button.classList.add("correct")
+            }
+            else {
+                button.classList.add("incorrect")
+            }
+
+
+            button.disabled = true //para não conseguir clicar em mais nenhum botão depois de ter escolhido uma alternativa
+        })
+
+        nextQuestionButton.classList.remove("hide")
+        currentQuestionIndex++
+    }
+
+    function finishGame() {
+        const totalQuestions = question.length;
+        const performance = Math.floor(totalCorrect * 100 / totalQuestions)//transforma o número em porcentagem e arredonda
+
+        let message = ""
+
+        switch (true) {
+            case (performance >= 90):
+                message = 'Excelente:)'
+                break
+            case (performance >= 70):
+                message = "Muito Bem :)"
+                break
+            case (performance >= 50):
+                message = "Bom"
+                break
+            default:
+                message = "Pode Melhorar :("
+
+        }
+
+        questionsContainer.innerHTML = ` 
+            Você acertou ${totalCorrect} de ${totalQuestions} questões !
+            <p> Resultado:${message}</p>
+            </p>
+            <button onclick=window.location.reload() class="button">
+                Refazer teste
+                </button>`
+    }
+
+    const question = [
+        {
+            question: "Quando foi criado o grupo Quebrada Queer?",
+            answers: [
+                { text: "2020", correct: false },
+                { text: "2019", correct: false },
+                { text: "2018", correct: true },
+                { text: "2021", correct: false },
+
+            ]
+        },
+        {
+            question: "O grupo é formado por quantos integrantes?",
+            answers: [
+                { text: "11", correct: false },
+                { text: "6", correct: true },
+                { text: "3", correct: false },
+                { text: "14", correct: false },
+
+            ]
+        },
+        {
+            question: "Qual a primeira música do grupo?",
+            answers: [
+                { text: "Quebrada Queer", correct: true },
+                { text: "Pra quem duvidou", correct: false },
+                { text: "Metralhada", correct: false },
+                { text: "ABC do QQ", correct: false },
+
+            ]
+        },
+        {
+            question: "O grupo é formado inteiramente por artistas LGBTQIAP+?",
+            answers: [
+                { text: "Não, apenas 1 do grupo se identifica como tal.", correct: false },
+                { text: "Sim,todos do grupo se identificam", correct: true },
+                { text: "Não, nenhum dos integrantes se identificam", correct: false },
+                { text: "Não, apenas 4 do grupo se identificam", correct: false },
+
+            ]
+        },
+        {
+            question: "Em que cidade o grupo foi criado?",
+            answers: [
+                { text: "Rio de Janeiro", correct: false },
+                { text: "Bahia", correct: false },
+                { text: "Rio Grande do Sul", correct: false },
+                { text: "São Paulo", correct: true },
+
+            ]
+        },
+        {
+            question: "Qual o gênero do grupo?",
+            answers: [
+                { text: "Hip-Hop/Rap", correct: true },
+                { text: "Rock", correct: false },
+                { text: "Bahia", correct: false },
+                { text: "Pop", correct: false },
+
+            ]
+        },
+        {
+            question: "Qual o nome do primeiro álbum do grupo?",
+            answers: [
+                { text: "Ser", correct: false },
+                { text: "Quebrada", correct: false },
+                { text: "S2", correct: false },
+                { text: "Holo-Forte", correct: true },
+
+            ]
+        },
+        {
+            question: "Em que ano foi lançado o primeiro EP do grupo?",
+            answers: [
+                { text: "2024", correct: false },
+                { text: "2020", correct: false },
+                { text: "2018", correct: true },
+                { text: "2015", correct: false },
+
+            ]
+        },
+        {
+            question: "Qual dos integrantes possui um feat com a Urias?",
+            answers: [
+                { text: "Harley", correct: false },
+                { text: "Boombeat", correct: true },
+                { text: "Guigo", correct: false },
+                { text: "Murillo", correct: false },
+
+            ]
+        },
+        {
+            question: "Qual o sobrenome do integrante Murillo?",
+            answers: [
+                { text: "Gomez", correct: false },
+                { text: "Torres", correct: false },
+                { text: "Zyess", correct: true },
+                { text: "Neves", correct: false },
+
+            ]
+        },
+
+    ]
+
+
+
+
+
+
+</script>

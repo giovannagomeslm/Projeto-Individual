@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="../public/css/stylequizz.css">
+    <link rel="stylesheet" href="./css/stylequizz.css">
     <title>Document</title>
 
 </head>
@@ -168,10 +168,57 @@
             Você acertou ${totalCorrect} de ${totalQuestions} questões !
             <p> Resultado:${message}</p>
             </p>
+                <span onload="carregarDashboard()">
+                </span>
             <button onclick=window.location.reload() class="button">
                 Refazer teste
-                </button>`
+                </button> `
+
+        var usuarioIdVar = sessionStorage.ID_USUARIO; // session guarda o id do login do usuário
+
+        fetch("/usuarios/salvarPontuacao", {
+            method: "POST",
+            headers: {
+                "Content-Type": "application/json"
+            },
+            body: JSON.stringify({
+                usuarioIdServer: usuarioIdVar,
+                idQuizServer: 1, // Define o número do seu quiz na hora de inserir no banco de dados.
+                pontuacaoServer: totalCorrect
+           
+            }),
+        }).then(function (resposta) {
+            console.log("ESTOU NO THEN DO entrar()!")
+
+            if (resposta.ok) {
+                console.log(resposta);
+
+
+
+            } else {
+
+                console.log("Houve um erro ao tentar realizar o login!");
+
+                resposta.text().then(texto => {
+                    console.error(texto);
+
+                });
+            }
+
+        }).catch(function (erro) {
+            console.log(erro);
+        })
+
+
+        // setTimeout(() => {
+
+        //     window.location = "dashboard.html"
+
+        // }, 3000)
+
     }
+
+
 
     const question = [
         {

@@ -19,6 +19,14 @@ function autenticar(req, res) {
                     if (resultadoAutenticar.length == 1) {
                         console.log(resultadoAutenticar);
 
+                        res.json({
+                            idUsuario: resultadoAutenticar[0].idUsuario,
+                            nome: resultadoAutenticar[0].nome,
+                            dtNasc: resultadoAutenticar[0].dtNasc,
+                            email: resultadoAutenticar[0].email,
+                            senha: resultadoAutenticar[0].senha
+                        });
+
                     } else if (resultadoAutenticar.length == 0) {
                         res.status(403).send("Email e/ou senha inválido(s)");
                     } else {
@@ -41,7 +49,7 @@ function cadastrar(req, res) {
     var nome = req.body.nomeServer;
     var email = req.body.emailServer;
     var senha = req.body.senhaServer;
-    var dtNasc=req.body.dataServer;
+    var dtNasc = req.body.dataServer;
     // Faça as validações dos valores
     if (nome == undefined) {
         res.status(400).send("Seu nome está undefined!");
@@ -49,8 +57,8 @@ function cadastrar(req, res) {
         res.status(400).send("Seu email está undefined!");
     } else if (senha == undefined) {
         res.status(400).send("Sua senha está undefined!");
-    
-    }else if (dtNasc==undefined) {
+
+    } else if (dtNasc == undefined) {
         res.status(400).send("Sua Data de Nascimento está undefined");
     }
     else {
@@ -74,7 +82,50 @@ function cadastrar(req, res) {
     }
 }
 
+
+
+function salvarPontuacao(req, res) {
+    // Crie uma variável que vá recuperar os valores do arquivo cadastro.html
+    var usuario = req.body.usuarioIdServer;
+    var quiz = req.body.idQuizServer;
+    var pontuacao = req.body.pontuacaoServer
+    // Faça as validações dos valores
+    if (usuario == undefined) {
+        res.status(400).send("Seu id está undefined!");
+    } else if (quiz == undefined) {
+        res.status(400).send("Seu email está undefined!");
+    } else if (pontuacao == undefined) {
+        res.status(400).send("Sua senha está undefined!");
+
+    }
+    else {
+
+        // Passe os valores como parâmetro e vá para o arquivo usuarioModel.js
+        usuarioModel.salvarPontuacao(usuario, quiz, pontuacao)
+            .then(
+                function (resultado) {
+                    res.json(resultado);
+                }
+            ).catch(
+                function (erro) {
+                    console.log(erro);
+                    console.log(
+                        "\nHouve um erro ao realizar o cadastro! Erro: ",
+                        erro.sqlMessage
+                    );
+                    res.status(500).json(erro.sqlMessage);
+                }
+            );
+    }
+}
+
+
+
+
 module.exports = {
     autenticar,
-    cadastrar
+    cadastrar,
+    salvarPontuacao
 }
+
+

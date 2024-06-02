@@ -10,6 +10,10 @@ router.post("/cadastrar", function (req, res) {
 
 router.post("/autenticar", function (req, res) {
     usuarioController.autenticar(req, res);
-});
+}); 
+
+router.post("/salvarPontuacao", function (req, res) {
+    usuarioController.salvarPontuacao(req, res);
+})
 
 module.exports = router;

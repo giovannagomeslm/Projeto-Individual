@@ -267,7 +267,7 @@ body {
   font-family: "Urbanist", sans-serif;
 }
 .card2{
-  width: 420px;
+  width: 220px;
   height: 470px;
   font-size: 20px;
   background-color: white;
@@ -276,6 +276,8 @@ body {
   border-radius: 20px;
   display: flex;
   flex-direction: column;
+  margin-left: 200px;
+
  }
  .card2 p{
   text-align: center;

@@ -6,23 +6,75 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="stylesheet" href="./css/style_dashboard.css">
 </head>
 
-<body>
+<body onload="capturarPontuacao()">
 
-    <canvas id="myChart" style="position: relative; height: 40vh;"></canvas>
+    <nav class="menu">
+        <input type="checkbox" class="menu-faketrigger" onclick="abrirMenu()">
+        <div class="menu-lines" >
+            <span></span>
+            <span></span>
+            <span></span>
+        </div>
+        <ul class="lista_botao">
+            <li><a href="./telaUsuario.html">Usuário</a></li>
+            <li><a href="./quiz2.html">Quiz</a></li>
+            <li><a href="./dashboard.html">Dashboard</a></li>
+            <li><a href="./telahome.html">Sair</a></li>
+
+
+
+        </ul>
+    </nav>
+    <img src="./assets/Captura de tela 2024-04-29 222740 3.png">
+    </nav>
+    <div class="titulo_dash">
+        <p class="titulo">DASHBOARD</p>
+
+    </div>
+    <div class="container">
+        <div class="dashboard">
+            <canvas id="myChart" style="position: relative; height: 40vh;"></canvas>
+
+        </div>
+    </div>
 
 </body>
 
 </html>
 
 <script>
+    function abrirMenu() {
+
+        let menu = document.querySelector(".lista_botao")
+
+        if (!revelar) {
+            menu.style.display = "block"
+            menu.style.transform = "translateX(25%)"
+            menu.style.animation = "opacity1 0.8s ease-in-out"
+
+            revelar = true
+
+        }
+        else {
+            menu.style.display = "none"
+            revelar = false
+            menu.style.animation = "opacity2 0.8s ease-in-out"
+
+        }
+
+
+
+    }
+
 
     const labels = []
     const data = {
         labels: labels,
         datasets: [{
-            label: 'My First Dataset',
+            label: 'Pontuação',
             data: [65, 59, 80, 81, 56, 55, 40],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',
@@ -42,7 +94,7 @@
                 'rgb(153, 102, 255)',
                 'rgb(201, 203, 207)'
             ],
-            borderWidth: 1
+            borderWidth: 3
         }]
     };
 
@@ -50,9 +102,30 @@
         type: 'bar',
         data: data,
         options: {
+            plugins: {
+                legend: {
+                    labels: {
+                        color: '#ffffff' // Cor das fontes da legenda
+                    }
+                }
+            },
             scales: {
                 y: {
-                    beginAtZero: true
+                    beginAtZero: true,
+                    ticks: {
+                        color: '#ffffff', // Cor das fontes do eixo y
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.2)' // Cor dos traços de fundo do eixo y com opacidade reduzida
+                    }
+                },
+                x: {
+                    ticks: {
+                        color: '#ffffff', // Cor das fontes do eixo x
+                    },
+                    grid: {
+                        color: 'rgba(255, 255, 255, 0.2)' // Cor dos traços de fundo do eixo x com opacidade reduzida
+                    }
                 }
             }
         },
@@ -61,4 +134,42 @@
         document.getElementById('myChart'),
         config
     )
+
+    function capturarPontuacao() {
+
+
+
+        fetch("/usuarios/capturarPontuacao", {
+            method: "GET",
+            headers: {
+                "Content-Type": "application/json"
+            }
+
+        }).then(function (resposta) {
+
+            if (!resposta.ok) {
+                throw new Error("Erro ao obter pontuação!")
+
+
+            }
+            return resposta.json()
+        })
+            .then(function (data) {
+                console.log("pontuacoes:", data)
+                const nomes = data.map(item => item.nome);
+                const ultimaPontuacao = data.map(item => item.ultima_pontuacao);
+
+                // Atualizar o gráfico com os novos dados
+                myChart.data.labels = nomes;
+                myChart.data.datasets[0].data = ultimaPontuacao;
+                myChart.update();
+            }
+            )
+
+            .catch(function (erro) {
+                console.log(erro);
+            })
+
+    }
+
 </script>

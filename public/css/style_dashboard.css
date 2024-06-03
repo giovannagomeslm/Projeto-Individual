@@ -3,6 +3,242 @@
     padding: 0;
 
 }
+nav{
+    background-color: black;
+    height: 100px;
+    border-radius: 3px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+nav img{
+    height: 50px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+
+body{
+    background-image: url("../assets/qq-full-2.webp")  ;
+    background-repeat: no-repeat;
+    background-size: cover;
+    overflow-y: hidden;
+}
+
+.menu {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin-right: 80px; 
+    margin-top: 20px;
+    left: 97%;
+}
+
+
+.menu .menu-lines {
+    position: absolute;
+    z-index: 999;
+    width: 35px;
+    height: 35px;
+}
+
+.menu .menu-lines span {
+    display: block;
+    width: 35px;
+    height: 5px;
+    margin-bottom: 10px;
+    background-color: white;
+    border-radius: 3px;
+    transition: all ease .2s;
+}
+
+.menu .menu-faketrigger {
+    position: absolute;
+    z-index: 1000;
+    width: 35px;
+    height: 35px;
+    opacity: 0;
+    cursor: pointer;
+}
+
+.menu .menu-faketrigger:checked ~ .menu-lines span {
+    background-color: white;
+   
+}
+
+.menu .menu-faketrigger:checked ~ .menu-lines span:nth-child(1) {
+    transform-origin: 0% 0%;
+    transform: rotate(45deg) scaleX(1.25);
+    
+}
+
+.menu .menu-faketrigger:checked ~ .menu-lines span:nth-child(2) {
+    opacity: 0;
+}
+
+.menu .menu-faketrigger:checked ~ .menu-lines span:nth-child(3) {
+    transform-origin: 0% 100%;
+    transform: rotate(-45deg) scaleX(1.25);
+}
+
+ .lista_botao {
+    display: none;
+    position: absolute;
+    z-index: 998;
+    right: 0; 
+    top: 0;
+    width: 300px;
+    height: calc(100vh - 100px);
+    padding-top: 100px;
+    background-color: #0D0D0D;
+    border-radius: 10px;
+    margin-right: -300px; 
+    transition: all ease .2s;
+    list-style: none;
+}
+
+.menu .menu-faketrigger:checked ~ ul {
+    margin-right: 0; 
+}
+
+.menu ul li {
+    padding: 10px 30px;
+}
+
+.menu ul li a {
+    text-decoration: none;
+    color: white;
+    font-size: 22px;
+    transition: all ease .3s;
+}
+
+.menu ul li a:hover {
+    color: #FEBA08;
+}
+
+.container span:first-of-type {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to right, transparent, #FEBA08);
+    animation: animar1 2s linear infinite;
+}
+
+@keyframes animar1 {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+.container span:nth-of-type(2) {
+    position: absolute;
+    top: 0;
+    right: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to bottom, transparent, #FEBA08);
+    animation: animar2 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes animar2 {
+    0% {
+        transform: translateY(-100%);
+    }
+    100% {
+        transform: translateY(100%);
+    }
+
+}
+@keyframes opacity1{
+    0%{
+        opacity: 0%;
+    }
+    100%{
+        opacity: 100%;
+    }
+}
+@keyframes opacity2{
+    0%{
+        opacity: 100%;
+    }
+    100%{
+        opacity: 0%;
+    }
+}
+
+
+.container span:nth-of-type(3) {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+    width: 100%;
+    height: 3px;
+    background: linear-gradient(to left, transparent, #FEBA08);
+    animation: animar3 2s linear infinite;
+}
+
+@keyframes animar3 {
+    0% {
+        transform: translateX(100%);
+    }
+    100% {
+        transform: translateX(-100%);
+    }
+}
+
+.container span:nth-of-type(4) {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 3px;
+    height: 100%;
+    background: linear-gradient(to top, transparent, #FEBA08);
+    animation: animar4 2s linear infinite;
+    animation-delay: 1s;
+}
+
+@keyframes animar4 {
+    0% {
+        transform: translateY(100%);
+    }
+    100% {
+        transform: translateY(-100%);
+    }
+}
+
+
+
+
+.titulo{
+    color:white;
+    text-align: center;
+    font-family: "Urbanist",sans-serif;
+    margin-top: 30px;
+    color: #FEBA08;
+    font-weight: bold;
+    font-size: 35px;
+    background-color: black;
+    padding: 20px;
+    width: 400px;
+    border-radius: 20px;
+    box-shadow: 1px 9px 28px 0px rgba(0,0,0,0.75)
+
+    
+}
+.titulo_dash{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    
+}
 .dashboard{
     background-color: black;
     height: 400px;
@@ -10,4 +246,21 @@
     display: flex; 
     justify-content:center;
     align-items: center;
+    border-radius: 5px;
+    margin-bottom: 200px;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 1px 9px 28px 0px rgba(0,0,0,0.75)
+
+
+}
+.container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh; 
+    opacity: 90%;
+    margin-top: 0;
+
+
 }

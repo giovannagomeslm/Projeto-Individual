@@ -1,60 +1,50 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
+CREATE DATABASE Ser;
 
-/*
-comandos para mysql server
-*/
+USE Ser;
 
-CREATE DATABASE aquatech;
+CREATE TABLE usuario(
+idUsuario INT PRIMARY KEY AUTO_INCREMENT,
+nome VARCHAR (45),
+dtNasc DATE,
+email VARCHAR(264),
+senha VARCHAR (15));
 
-USE aquatech;
+CREATE TABLE quiz(
+idQuiz INT PRIMARY KEY ,
+nome VARCHAR (45));
 
-CREATE TABLE empresa (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14)
-);
+INSERT INTO quiz VALUES (
+1,'Quebrada Queer');
 
-CREATE TABLE usuario (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	cpf CHAR (11),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
+CREATE TABLE resultado (
+idResultado INT  AUTO_INCREMENT,
+fkUsuario	INT,
+fkQuiz INT,
+pontuacao INT,
+CONSTRAINT fkUsuario FOREIGN KEY (fkUsuario) REFERENCES usuario (idUsuario),
+CONSTRAINT fkQuiz FOREIGN KEY (fkQuiz) REFERENCES quiz (idQuiz),
+ PRIMARY KEY (idResultado,fkUsuario,fkQuiz));
 
-CREATE TABLE aviso (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
-);
+INSERT INTO resultado ( fkUsuario, fkQuiz, pontuacao) VALUES ( 1, 1, 1 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
-);
+SELECT usuario.nome, (SELECT resultado.pontuacao  
+     FROM resultado 
+     WHERE resultado.fkUsuario = usuario.idUsuario 
+     ORDER BY resultado.pontuacao DESC LIMIT 1) AS UltimaPontuacao
+     FROM usuario
+ORDER BY UltimaPontuacao DESC;
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
+SELECT usuario.nome, resultado.pontuacao 
+FROM usuario JOIN resultado ON 
+fkUsuario=idUsuario;
 
-create table medida (
-	id INT PRIMARY KEY AUTO_INCREMENT,
-	dht11_umidade DECIMAL,
-	dht11_temperatura DECIMAL,
-	luminosidade DECIMAL,
-	lm35_temperatura DECIMAL,
-	chave TINYINT,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
-);
+SELECT usuario.nome ,resultado.fkQuiz
+FROM usuario JOIN resultado
+ON fkQuiz=idQuiz;
 
-insert into empresa (razao_social, cnpj) values ('Empresa 1', '00000000000000');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
+SELECT*FROM quiz;
+SELECT*FROM resultado;
+SELECT * FROM usuario;
+
+
+

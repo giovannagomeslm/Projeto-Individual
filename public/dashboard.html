@@ -27,9 +27,11 @@
 
 
         </ul>
-    </nav>
-    <img src="./assets/Captura de tela 2024-04-29 222740 3.png">
-    </nav>
+    </nav >
+    <div class="logo">
+        <img src="./assets/Captura de tela 2024-04-29 222740 3.png" >
+    </div>
+   
     <div class="titulo_dash">
         <p class="titulo">DASHBOARD</p>
 
@@ -49,6 +51,8 @@
     function abrirMenu() {
 
         let menu = document.querySelector(".lista_botao")
+        let revelar = false;
+
 
         if (!revelar) {
             menu.style.display = "block"
@@ -74,7 +78,7 @@
     const data = {
         labels: labels,
         datasets: [{
-            label: 'Pontuação',
+            label: 'Ranking das maiores pontuações dos usuários',
             data: [65, 59, 80, 81, 56, 55, 40],
             backgroundColor: [
                 'rgba(255, 99, 132, 0.2)',

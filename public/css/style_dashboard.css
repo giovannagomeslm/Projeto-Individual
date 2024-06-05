@@ -18,6 +18,9 @@ nav img{
     align-items: center;
 }
 
+.logo img {
+    margin-top: 20px;
+}
 
 body{
     background-image: url("../assets/qq-full-2.webp")  ;
@@ -31,7 +34,7 @@ body{
     top: 0;
     right: 0;
     margin-right: 80px; 
-    margin-top: 20px;
+    margin-top: 0px;
     left: 97%;
 }
 

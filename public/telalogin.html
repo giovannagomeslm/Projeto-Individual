@@ -15,21 +15,22 @@
 
 <body>
 
-  <div class="hamburger-menu">
-    <input id="menu__toggle" type="checkbox" />
-    <label class="menu__btn" for="menu__toggle">
-      <span></span>
-    </label>
+  <nav class="menu">
+    <input type="checkbox" class="menu-faketrigger" onclick="abrirMenu()">
+    <div class="menu-lines" >
+        <span></span>
+        <span></span>
+        <span></span>
+    </div>
+    <ul class="lista_botao">
+        <li><a href="./quiz2.html">Quiz</a></li>
+        <li><a href="./dashboard.html">Dashboard</a></li>
+        <li><a href="./telahome.html">Sair</a></li>
 
-    <ul class="menu__box">
-      <li> <i class="fa-solid fa-house"></i> <a class="menu__item" href="#">Home</a></li>
-      <li><a class="menu__item" href="#">Sobre Nós </a></li>
-      <li><a class="menu__item" href="#">Contatos</a></li>
-      <li><a class="menu__item" href="#">Quiz</a></li>
-      <li><a class="menu__item" href="#">Twitter</a></li>
+
+
     </ul>
-  </div>
-
+</nav >
   <div>
     <img class="logo" src="./assets/Captura de tela 2024-04-29 222740 3.png">
   </div>
@@ -46,7 +47,7 @@
     <input class="input_senha" id="input_senha" type="password" placeholder="Senha:"><br>
     <button onclick="login()" class="botao">Entrar</button>
     <div class="frase">
-      <p>Não tem uma conta?Faça seu cadastro por aqui!</p>
+    <a href="index.html" class="link"> <p class="link_texto">Não tem uma conta?Faça seu cadastro por aqui!</p></a> 
     </div>
   </div>
 
@@ -56,6 +57,32 @@
 </html>
 
 <script>
+
+  
+function abrirMenu() {
+
+let menu = document.querySelector(".lista_botao")
+let revelar = false;
+
+
+if (!revelar) {
+    menu.style.display = "block"
+    menu.style.transform = "translateX(25%)"
+    menu.style.animation = "opacity1 0.8s ease-in-out"
+
+    revelar = true
+
+}
+else {
+    menu.style.display = "none"
+    revelar = false
+    menu.style.animation = "opacity2 0.8s ease-in-out"
+
+}
+
+
+
+}
 
   function login() {
     let email = input_email.value;
@@ -95,7 +122,7 @@
             console.log(sessionStorage.NOME_USUARIO)
             console.log(sessionStorage.ID_USUARIO)
             setTimeout(function () {
-              window.location = "./telaUsuario.html";
+              window.location = "./quiz2.html";
             }, 1000); // apenas para exibir o loading
 
           });
